@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> <!--Recuerda que head solo es visible para los desarrolladores web-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tikos Bazar</title>
+    <meta name="description" content="Ropa vintage y streetwear con estilo.">
+    <meta name="keywords" content="ropa, vintage, streetwear, hoodies, jeans, crewnecks, tikos">
+    <meta name="author" content="Tikos Bazar">
+    <meta name="copyright" content="2025 TikosBazar.mx">
+    <meta name="application-name" content="TikosBazar.mx">
+    <meta name="generator" content="VSCode">
+    <link rel="stylesheet" href="styles.css">
+    <!--Bootstrap CSS (CDN)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap Icons (ícono carrito + WhatsApp) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body>
+  <!-- ================== NAVBAR ================== -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+         <img src="img/Imagen 1.jpeg" alt="Tikos Bazar" height="32" class="align-text-top me-2 rounded"> 
+        <span class="fw-semibold">Tikos Bazar</span>
+      </a>
+
+      <!-- Botón hamburguesa (móvil) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links del navbar -->
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tablaProductos">Inventario</a></li>
+        </ul>
+
+        <button class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#modalAviso">
+          Aviso
+        </button>
+
+        <!-- Botón Carrito -->
+        <button class="btn position-relative ms-lg-2" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"
+                aria-label="Abrir carrito">
+          <i class="bi bi-bag fs-5"></i>
+          <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- ================ /NAVBAR ================== -->
+
+  <!-- ===== WhatsApp flotante (fijo) ===== -->
+  <a id="whatsappFloat" class="btn btn-dark shadow-lg"
+     href="https://wa.me/527227922226?text=Hola%20vengo%20de%20Tikos%20Bazar%20:%29"
+     target="_blank" rel="noopener" aria-label="WhatsApp Tikos Bazar">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <header>
+    <h1>Tikos Bazar</h1>  
+    <p>No es logo, es el flow</p>
+  </header>
+
+  <!--BANNER PROMOCIONAL -->
+  <section class="container my-3">
+    <div id="banner" class="p-4 rounded bg-dark text-white">
+      <h2 class="h4 mb-2">Promo de la semana</h2>
+      <p class="mb-0">Envío gratis en compras mayores a $499 MXN</p>
+    </div>
+    <button id="btnPromo" class="btn btn-warning btn-sm mt-2">
+      Actualizar promoción
+    </button>
+  </section>
+
+  <div class="container mt-3">
+    <div class="alert alert-info" role="alert">
+      Encuentra prendas únicas con historia (ejemplo de <strong>alert</strong>).
+    </div>
+  </div>
+
+  <main class="container my-4">
+
+    <!-- ============== CARRUSEL ============== -->
+    <div id="heroCarousel" class="carousel slide mb-4" data-bs-ride="carousel" aria-label="Promociones destacadas">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner rounded-3 shadow-sm">
+        <div class="carousel-item active">
+          <img src="img/Imagen 1.jpeg" class="d-block w-100" alt="Crewneck 90s en promoción"
+               style="height:420px; object-fit:cover;">
+          <div class="carousel-caption d-none d-md-block text-start">
+            <h5>Hard Rock 90s Crewneck</h5>
+            <p>Suéter icónico, vibe noventera.</p>
+            <a href="#catalogo" class="btn btn-primary btn-sm">Ver catálogo</a>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/Imagen 2.jpeg" class="d-block w-100" alt="Sudaderas vintage"
+               style="height:420px; object-fit:cover;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Vintage Hoodie</h5>
+            <p>Amplia, cómoda y atemporal.</p>
+            <a href="#tablaProductos" class="btn btn-light btn-sm">Inventario</a>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/Imagen 3.jpeg" class="d-block w-100" alt="Jeans baggy"
+               style="height:420px; object-fit:cover;">
+          <div class="carousel-caption d-none d-md-block text-end">
+            <h5>Baggy Jeans</h5>
+            <p>Tiro alto, corte relajado.</p>
+            <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalCupon">
+              Más opciones
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Anterior">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Siguiente">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+    <!-- ============ /CARRUSEL ============ -->
+
+    <div class="row g-4">
+      <!-- ===Columna izquierda (CATÁLOGO) === -->
+      <div class="col-12 col-lg-8" id="catalogo">
+
+        <!-- ===Card 1: Vintage Hoodie === -->
+        <div class="card shadow-sm mb-4">
+  <div class="row g-0">
+    <div class="col-md-5">
+      <img src="img/Imagen 2.jpeg" alt="Vintage Hoodie gris" class="img-fluid product-img"><br>
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h2 class="card-tittle h4 mb-2">Vintage Hoodie</h2>
+        <p class="card-text mb-1">Sudadera amplia, cómoda y atemporal.</p>
+        <p class="card-text fs-5 fw-semibold text-success">$200 MXN</p>
+        <h3 class="h5">Características:</h3>
+        <ul class="mb-2 text-danger">
+          <li>Algodón suave</li>
+          <li>Fit relajado</li>
+          <li>Unisex</li>
+        </ul>
+        <!-- Botón agregar -->
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-sm add-to-cart"
+                  data-name="Vintage Hoodie" data-price="200" data-img="img/Imagen 2.jpeg">
+            <i class="bi bi-cart-plus"></i> Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- ===Card 2: Baggy Jeans === -->
+       <div class="card shadow-sm mb-4">
+  <div class="row g-0">
+    <div class="col-md-5">
+      <img src="img/Imagen 3.jpeg" alt="Baggy Jeans azul" class="img-fluid product-img"><br>
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h2 class="card-tittle h4 mb-2">Baggy Jeans</h2>
+        <p class="card-text mb-1">Jeans de tiro alto con corte relajado.</p>
+        <p class="card-text fs-5 fw-semibold text-success">$280 MXN</p>
+        <h3 class="h5">Características:</h3>
+        <ul class="mb-2 text-danger">
+          <li>Denim resistente</li>
+          <li>Silueta 90s</li>
+          <li>Tiro alto</li>
+        </ul>
+        <!-- Botón agregar -->
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-sm add-to-cart"
+                  data-name="Baggy Jeans" data-price="280" data-img="img/Imagen 3.jpeg">
+            <i class="bi bi-cart-plus"></i> Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- ===Card 3: Hard Rock 90s Crewneck === -->
+        <div class="card shadow-sm mb-4">
+  <div class="row g-0">
+    <div class="col-md-5">
+      <img src="img/Imagen 1.jpeg" alt="Hard Rock 90s Crewneck" class="img-fluid product-img"><br>
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h2 class="card-tittle h4 mb-2">Hard Rock 90s Crewneck</h2>
+        <p class="card-text mb-1">Suéter icónico inspirado en los 90.</p>
+        <p class="card-text fs-5 fw-semibold text-success">$220 MXN</p>
+        <h3 class="h5">Características:</h3>
+        <ul class="mb-2 text-danger">
+          <li>Corte clásico</li>
+          <li>Gráfico original</li>
+          <li>Colores sobrios</li>
+        </ul>
+        <!-- Botón agregar -->
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-sm add-to-cart"
+                  data-name="Hard Rock 90s Crewneck" data-price="220" data-img="img/Imagen 1.jpeg">
+            <i class="bi bi-cart-plus"></i> Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--====CARD EXTRA===========-->
+        <div class="card shadow-sm mb-4">
+  <div class="row g-0">
+    <div class="col-md-5">
+      <img src="img/Imagen 2.jpeg" alt="Zip Hoodie" class="img-fluid product-img"><br>
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h2 class="card-tittle h4 mb-2">Zip Hoodie</h2>
+        <p class="card-text mb-1">Sudadera con cierre, ligera.</p>
+        <p class="card-text fs-5 fw-semibold text-success">$250 MXN</p>
+        <h3 class="h5">Características:</h3>
+        <ul class="mb-2 text-danger">
+          <li>Capucha</li>
+          <li>Bolsillos</li>
+          <li>Uso diario</li>
+        </ul>
+        <!-- Botón agregar -->
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-sm add-to-cart"
+                  data-name="Zip Hoodie" data-price="250" data-img="img/Imagen 2.jpeg">
+            <i class="bi bi-cart-plus"></i> Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+      <!--cierra col-12 col-lg-8-->
+
+        <!-- ========================================== -->
+        <!-- TABLA DE INVENTARIO -->
+        <!-- ========================================== -->
+        <h3 class="mt-5" id="tablaProductos">Tabla de productos en bodega:</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Vintage Hoodie</td><td>$200.00</td><td>5</td></tr>
+              <tr><td>Baggy Jeans</td><td>$280.00</td><td>7</td></tr>
+              <tr><td>Hard Rock 90s Crewneck</td><td>$220.00</td><td>4</td></tr>
+              <tr><td>Zip Hoodie</td><td>$250.00</td><td>6</td></tr>
+              <tr><td>Boxy Tee</td><td>$180.00</td><td>8</td></tr>
+              <tr><td>Gorra vintage</td><td>$160.00</td><td>9</td></tr>
+              <tr><td>Coach Jacket</td><td>$350.00</td><td>3</td></tr>
+              <tr><td>Carpenter Jeans</td><td>$320.00</td><td>5</td></tr>
+              <tr><td>Sudadera básica</td><td>$190.00</td><td>10</td></tr>
+              <tr><td>Chamarra denim</td><td>$420.00</td><td>2</td></tr>
+            </tbody>
+            <tfoot class="table-light fw-bold">
+              <tr>
+                <td colspan="2">Total</td>
+                <td>59</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN COLAPSABLE -->
+        <!-- ========================================== -->
+        <section class="my-5">
+          <h3 class="h5 mb-3">Más información</h3>
+          <p>
+            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#infoExtra" aria-expanded="false" aria-controls="infoExtra">
+              Mostrar más detalles
+            </button>
+          </p>
+          <div class="collapse" id="infoExtra">
+            <div class="card card-body">
+              Guías de tallas, cuidados y notas del drop. <strong>Colapsable</strong>.
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- ACORDEÓN -->
+        <!-- ========================================== -->
+        <section class="my-5">
+          <h3 class="h5 mb-3">Preguntas frecuentes</h3>
+          <div class="accordion" id="miAcordeon">
+
+            <!-- Pregunta 1 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="encabezadoUno">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelUno" aria-expanded="true" aria-controls="panelUno">
+                  ¿Cuánto tarda el envío?
+                </button>
+              </h2>
+              <div id="panelUno" class="accordion-collapse collapse show" aria-labelledby="encabezadoUno" data-bs-parent="#miAcordeon">
+                <div class="accordion-body">
+                  Entre 2 y 5 días hábiles, según tu ubicación.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="encabezadoDos">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelDos" aria-expanded="false" aria-controls="panelDos">
+                  ¿Puedo devolver o cambiar?
+                </button>
+              </h2>
+              <div id="panelDos" class="accordion-collapse collapse" aria-labelledby="encabezadoDos" data-bs-parent="#miAcordeon">
+                <div class="accordion-body">
+                  Sí, 7 días con prenda en buen estado.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="encabezadoTres">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelTres" aria-expanded="false" aria-controls="panelTres">
+                  ¿Métodos de pago?
+                </button>
+              </h2>
+              <div id="panelTres" class="accordion-collapse collapse" aria-labelledby="encabezadoTres" data-bs-parent="#miAcordeon">
+                <div class="accordion-body">
+                  Tarjeta, transferencia y efectivo en entrega.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- FORMULARIO DE PEDIDO -->
+        <!-- ========================================== -->
+        <section id="pedido" class="my-5">
+          <h3 class="h5 mb-3">Hacer pedido</h3>
+
+          <ul class="nav nav-pills mb-3" id="pillsPedido" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-producto-tab" data-bs-toggle="pill" data-bs-target="#pills-producto" type="button" role="tab" aria-controls="pills-producto" aria-selected="true">
+                1) Producto
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-personaliza-tab" data-bs-toggle="pill" data-bs-target="#pills-personaliza" type="button" role="tab" aria-controls="pills-personaliza" aria-selected="false">
+                2) Personaliza
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-notas-tab" data-bs-toggle="pill" data-bs-target="#pills-notas" type="button" role="tab" aria-controls="pills-notas" aria-selected="false">
+                3) Envío/Notas
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pillsPedidoContent">
+
+            <!-- Paso 1: Producto -->
+            <div class="tab-pane fade show active" id="pills-producto" role="tabpanel" aria-labelledby="pills-producto-tab" tabindex="0">
+              <form aria-label="Formulario de pedido (sin lógica por ahora)">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="selModelo" class="form-label">Prenda</label>
+                    <select id="selModelo" class="form-select">
+                      <option value="" selected disabled>Elige una prenda</option>
+                      <option>Vintage Hoodie</option>
+                      <option>Baggy Jeans</option>
+                      <option>Hard Rock 90s Crewneck</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="selColor" class="form-label">Color</label>
+                    <select id="selColor" class="form-select">
+                      <option value="" selected disabled>Elige</option>
+                      <option>Negro</option>
+                      <option>Azul</option>
+                      <option>Blanco</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="inpCantidad" class="form-label">Cantidad</label>
+                    <input id="inpCantidad" type="number" min="1" value="1" class="form-control">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="nombreCliente" class="form-label">Tu nombre</label>
+                    <input type="text" id="nombreCliente" class="form-control" placeholder="Escribe tu nombre">
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Paso 2: Personaliza -->
+            <div class="tab-pane fade" id="pills-personaliza" role="tabpanel" aria-labelledby="pills-personaliza-tab" tabindex="0">
+              <p class="mb-2">Opciones de personalización (maqueta):</p>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="chkNombreNumero">
+                    <label class="form-check-label" for="chkNombreNumero">Nombre y número</label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="chkParcheLiga">
+                    <label class="form-check-label" for="chkParcheLiga">Parche edición</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 3: Envío / Notas -->
+            <div class="tab-pane fade" id="pills-notas" role="tabpanel" aria-labelledby="pills-notas-tab" tabindex="0">
+              <div class="mb-3">
+                <label for="txtNotas" class="form-label">Notas o instrucciones</label>
+                <textarea id="txtNotas" class="form-control" rows="3" placeholder="Dirección, detalles de envío..."></textarea>
+              </div>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAviso">
+                Enviar pedido
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MODALES -->
+        <!-- ========================================== -->
+
+        <!-- Modal Aviso -->
+        <div class="modal fade" id="modalAviso" tabindex="-1" aria-labelledby="modalAvisoLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalAvisoLabel">Pedido enviado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                Tu pedido ha sido recibido correctamente. ¡Gracias por comprar en Tikos Bazar!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Cupón -->
+        <div class="modal fade" id="modalCupon" tabindex="-1" aria-labelledby="modalCuponLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCuponLabel">Cupón disponible</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                ¡Usa el cupón TIKOS10 para obtener un 10% de descuento!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Detalle Producto -->
+        <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalDetalleLabel">Detalle del producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                Aquí se mostraría información más detallada de cada producto seleccionado.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /row -->
+  </main>
+
+  <!--FORMULARIO DE CONTACTO-->
+  <section id="contacto" class="container my-5">
+    <h3 class="h5 mb-3">Contacto</h3>
+    <form id="formContacto" class="row g-3" aria-label="Formulario de contacto">
+      <div class="col-md-6">
+        <label for="cNombre" class="form-label">Nombre</label>
+        <input type="text" id="cNombre" name="nombre" class="form-control" placeholder="Tu nombre">
+      </div>
+      <div class="col-md-6">
+        <label for="cEmail" class="form-label">Email</label>
+        <input type="email" id="cEmail" class="form-control" placeholder="tucorreo@ejemplo.com">
+      </div>
+      <div class="col-12">
+        <label for="cMsg" class="form-label">Mensaje</label>
+        <input type="cMsg" class="form-control" rows="3" placeholder="¿En qué te podemos ayudar?">
+      </div>
+      <div class="col-12 d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== Offcanvas Carrito ===== -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasCartLabel">Tu carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <ul id="cartList" class="list-group mb-3 small"><!-- items --></ul>
+      <div class="mt-auto">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <strong>Total:</strong>
+          <span id="cartTotal" class="fs-5">$0.00</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button id="btnClearCart" class="btn btn-outline-secondary w-50">Vaciar</button>
+          <button id="btnCheckout" class="btn btn-success w-50">Pagar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== /Offcanvas Carrito ===== -->
+
+  <!--Bootstrap JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!--Enlace JS-->  
+  <script src="app.js"></script>
+</body>
+</html>
